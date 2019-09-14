@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TicTacYumTemplate</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://kit.fontawesome.com/1d3b5ea411.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600,800&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="page-size">
+            <div class="top-text">
+                <div id="game-title"><h1>Game <span id="game-number">1</span></h1></div>
+            </div>
+
+            <div id="board-game">
+                <div class="top-row">
+                    <div id="top1" class="tile"><img class="food-icon" style="display: none"></div>
+                    <div id="top2" class="tile"><img class="food-icon" style="display: none"></div>
+                    <div id="top3" class="tile"><img class="food-icon" style="display: none"></div>
+                </div>
+                <div class="middle-row">
+                    <div id="middle1" class="tile"><img class="food-icon" style="display: none"></div>
+                    <div id="middle2" class="tile"><img class="food-icon" style="display: none"></div>
+                    <div id="middle3" class="tile"><img class="food-icon" style="display: none"></div>
+                </div>
+                <div class="bottom-row">
+                    <div id="bottom1" class="tile"><img class="food-icon" style="display: none"></div>
+                    <div id="bottom2" class="tile"><img class="food-icon" style="display: none"></div>
+                    <div id="bottom3" class="tile"><img class="food-icon" style="display: none"></div>
+                </div>
+            </div>
+            <!--end of board-game-->
+
+            <div class="bottom-text">
+                <div id="p1-score-area" class="player"><img class="food-icon-score" style="display: none">
+                <div class="scoring" id ="p1-score"></div>
+                </div>
+                
+                <div id="p2-score-area" class="player"><img class="food-icon-score" style="display: none">
+                <span class="scoring" id ="p2-score"></span>
+                </div>
+                
+            </div><!--end of bottom-text-->
+
+        </div>
+        <!--end of page-size-->
+    </div>
+    <!--End of wrapper-->
+
+   
+
+<script src="script.js"></script>
+</body>
+
+</html>
