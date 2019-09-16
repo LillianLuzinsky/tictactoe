@@ -48,14 +48,28 @@ let scoreP2 = 0;
 let gameNum = 1;
 
 function displayScore() {
+    // update the score info in the dom
     $('#p1-score').text(scoreP1);
     $('#p2-score').text(scoreP2);
+
+    // hide the dom image icons
     resetTiles();
+
+    // update the playerIds so we get new icons for the next round
+    firstPlayerId += 2;
+    secondPlayerId += 2;
+    p1Icon = icons[firstPlayerId];
+    p2Icon = icons[secondPlayerId];
+    currentPlayer = firstPlayerId;
+
+    // update the icon scores with the newy updated icons
+    $('.food-icon-score').find('img').attr('src', p1Icon);
+    $('.food-icon-score').find('img').attr('src', p2Icon);
 }
 
 function resetTiles() {
     for (let i = 0; i < tilesLocations.length; i++) {
-        tilesLocations[i].text('');
+        tilesLocations[i].find('img').hide();
     }
     gameNum++;
     $('#game-number').text(gameNum);
@@ -79,16 +93,15 @@ function checkWin() {
 
 
     // check for p1 has won
-    if ((tiles[0] === p1Icon && tiles[1] === p1Icon && tiles[2] === p1Icon && currentPlayer !== -1) ||
-        (tiles[3] === p1Icon && tiles[4] === p1Icon && tiles[5] === p1Icon && currentPlayer !== -1) ||
-        (tiles[6] === p1Icon && tiles[7] === p1Icon && tiles[8] === p1Icon && currentPlayer !== -1) ||
-        (tiles[0] === p1Icon && tiles[3] === p1Icon && tiles[6] === p1Icon && currentPlayer !== -1) ||
-        (tiles[1] === p1Icon && tiles[4] === p1Icon && tiles[7] === p1Icon && currentPlayer !== -1) ||
-        (tiles[2] === p1Icon && tiles[5] === p1Icon && tiles[8] === p1Icon && currentPlayer !== -1) ||
-        (tiles[0] === p1Icon && tiles[4] === p1Icon && tiles[8] === p1Icon && currentPlayer !== -1) ||
-        (tiles[2] === p1Icon && tiles[4] === p1Icon && tiles[6] === p1Icon && currentPlayer !== -1)) {
+    if ((tiles[0] === p1Icon && tiles[1] === p1Icon && tiles[2] === p1Icon) ||
+        (tiles[3] === p1Icon && tiles[4] === p1Icon && tiles[5] === p1Icon) ||
+        (tiles[6] === p1Icon && tiles[7] === p1Icon && tiles[8] === p1Icon) ||
+        (tiles[0] === p1Icon && tiles[3] === p1Icon && tiles[6] === p1Icon) ||
+        (tiles[1] === p1Icon && tiles[4] === p1Icon && tiles[7] === p1Icon) ||
+        (tiles[2] === p1Icon && tiles[5] === p1Icon && tiles[8] === p1Icon) ||
+        (tiles[0] === p1Icon && tiles[4] === p1Icon && tiles[8] === p1Icon) ||
+        (tiles[2] === p1Icon && tiles[4] === p1Icon && tiles[6] === p1Icon)) {
 
-        currentPlayer = -1;
         scoreP1++;
 
         console.log('player 1 wins');
@@ -96,16 +109,15 @@ function checkWin() {
 
     }
     // check for p2 has won
-    else if ((tiles[0] === p2Icon && tiles[1] === p2Icon && tiles[2] === p2Icon && currentPlayer !== -1) ||
-        (tiles[3] === p2Icon && tiles[4] === p2Icon && tiles[5] === p2Icon && currentPlayer !== -1) ||
-        (tiles[6] === p2Icon && tiles[7] === p2Icon && tiles[8] === p2Icon && currentPlayer !== -1) ||
-        (tiles[0] === p2Icon && tiles[3] === p2Icon && tiles[6] === p2Icon && currentPlayer !== -1) ||
-        (tiles[1] === p2Icon && tiles[4] === p2Icon && tiles[7] === p2Icon && currentPlayer !== -1) ||
-        (tiles[2] === p2Icon && tiles[5] === p2Icon && tiles[8] === p2Icon && currentPlayer !== -1) ||
-        (tiles[0] === p2Icon && tiles[4] === p2Icon && tiles[8] === p2Icon && currentPlayer !== -1) ||
-        (tiles[2] === p2Icon && tiles[4] === p2Icon && tiles[6] === p2Icon && currentPlayer !== -1)) {
+    else if ((tiles[0] === p2Icon && tiles[1] === p2Icon && tiles[2] === p2Icon) ||
+        (tiles[3] === p2Icon && tiles[4] === p2Icon && tiles[5] === p2Icon) ||
+        (tiles[6] === p2Icon && tiles[7] === p2Icon && tiles[8] === p2Icon) ||
+        (tiles[0] === p2Icon && tiles[3] === p2Icon && tiles[6] === p2Icon) ||
+        (tiles[1] === p2Icon && tiles[4] === p2Icon && tiles[7] === p2Icon) ||
+        (tiles[2] === p2Icon && tiles[5] === p2Icon && tiles[8] === p2Icon) ||
+        (tiles[0] === p2Icon && tiles[4] === p2Icon && tiles[8] === p2Icon) ||
+        (tiles[2] === p2Icon && tiles[4] === p2Icon && tiles[6] === p2Icon)) {
 
-        currentPlayer = -1;
         scoreP2++;
 
         console.log('player 2 wins');
