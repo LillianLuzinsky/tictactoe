@@ -47,7 +47,9 @@ let gameNum = 0;
 
 function displayScore() {
     // update the score info in the dom
-    $('#p1-score').text(scoreP1);
+    $("#p1-score").hide(100, function() {
+        $(this).html(scoreP1).show(100);
+      });
     $('#p2-score').text(scoreP2);
 
     // hide the dom image icons
