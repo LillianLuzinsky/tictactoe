@@ -35,8 +35,6 @@ let tilesLocations = [
 let p1Icon = icons[0];
 let p2Icon = icons[1];
 
-$('#p1-score-area').find('img').show().attr('src', p1Icon);
-$('#p2-score-area').find('img').show().attr('src', p2Icon);
 
 let firstPlayerId = 0;
 let secondPlayerId = 1;
@@ -45,7 +43,7 @@ let currentPlayer = firstPlayerId;
 let scoreP1 = 0;
 let scoreP2 = 0;
 
-let gameNum = 1;
+let gameNum = 0;
 
 function displayScore() {
     // update the score info in the dom
@@ -56,15 +54,18 @@ function displayScore() {
     resetTiles();
 
     // update the playerIds so we get new icons for the next round
+    if (gameNum > 1){
     firstPlayerId += 2;
     secondPlayerId += 2;
+    }
     p1Icon = icons[firstPlayerId];
     p2Icon = icons[secondPlayerId];
     currentPlayer = firstPlayerId;
 
     // update the icon scores with the newy updated icons
-    $('.food-icon-score').find('img').attr('src', p1Icon);
-    $('.food-icon-score').find('img').attr('src', p2Icon);
+    $('#p1-score-area').find('img').show().attr('src', p1Icon);
+    $('#p2-score-area').find('img').show().attr('src', p2Icon);
+
 }
 
 function resetTiles() {
@@ -130,7 +131,7 @@ $(document).ready(function () {
     $('#p1-score').text(scoreP1);
     $('#p2-score').text(scoreP2);
 
-    // displayScore();
+    displayScore();
 
     $('.tile').on('click', function () {
 
@@ -168,5 +169,3 @@ function nextGame(){
         $('.food-icon-score').find('img').show().attr('src', p2Icon);
     }
 }
-
-
