@@ -45,6 +45,8 @@ let scoreP2 = 0;
 
 let gameNum = 0;
 
+let tileFliped = 0;
+
 function displayScore() {
     // update the score info in the dom
     $("#p1-score").hide(100, function() {
@@ -76,6 +78,18 @@ function resetTiles() {
     }
     gameNum++;
     $('#game-number').text(gameNum);
+    tileFliped = 0;
+}
+
+function resetTilesAfterTie() {
+    for (let i = 0; i < tilesLocations.length; i++) {
+        tilesLocations[i].find('img').hide();
+    }
+    $('#game-number').text(gameNum);
+    tileFliped = 0;
+    $("#game-title h1").text("Try Again");
+    $("#game-title h1").css('color', 'black');
+    $("#game-title h1").css("background-color","pink")
 }
 
 function checkWin() {
@@ -134,6 +148,7 @@ $(document).ready(function () {
     $('#p2-score').text(scoreP2);
 
     displayScore();
+    
 
     $('.tile').on('click', function () {
 
@@ -142,7 +157,7 @@ $(document).ready(function () {
 
         // if we can place a tile
         if (isTileUsed === false) {
-
+            tileFliped += 1;
             // check if first player
             if (currentPlayer === firstPlayerId) {
                 // show the icon and set the currentPlayer to player 2
@@ -158,8 +173,14 @@ $(document).ready(function () {
             }
 
         }//end of click tiles
-        
         checkWin();
+        console.log(tileFliped)
+        //check tie
+        if (tileFliped >= 9) {
+            resetTilesAfterTie()
+        }
+        
+        
     });
     
     nextGame();
