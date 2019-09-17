@@ -49,10 +49,12 @@ let tileFliped = 0;
 
 function displayScore() {
     // update the score info in the dom
-    $("#p1-score").hide(100, function() {
-        $(this).html(scoreP1).show(100);
+    $("#p1-score").slideUp(500, function() {
+        $(this).text(scoreP1).slideDown(500);
       });
-    $('#p2-score').text(scoreP2);
+    $("#p2-score").slideUp(500, function () {
+        $(this).text(scoreP2).slideDown(500);
+    });
 
     // hide the dom image icons
     resetTiles();
@@ -85,7 +87,9 @@ function resetTilesAfterTie() {
     for (let i = 0; i < tilesLocations.length; i++) {
         tilesLocations[i].find('img').hide();
     }
-    $('#game-number').text(gameNum);
+    $('#game-number').slideUp(500, function(){
+        $(this).text(gameNum).slideDown(500);
+    });
     tileFliped = 0;
     $("#game-title h1").text("Try Again");
     $("#game-title h1").css('color', 'black');
