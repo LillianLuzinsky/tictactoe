@@ -47,10 +47,12 @@ let gameNum = 0;
 
 function displayScore() {
     // update the score info in the dom
-    $("#p1-score").hide(100, function() {
-        $(this).html(scoreP1).show(100);
+    $("#p1-score").slideUp(500, function() {
+        $(this).text(scoreP1).slideDown(500);
       });
-    $('#p2-score').text(scoreP2);
+    $("#p2-score").slideUp(500, function () {
+        $(this).text(scoreP2).slideDown(500);
+    });
 
     // hide the dom image icons
     resetTiles();
@@ -75,7 +77,9 @@ function resetTiles() {
         tilesLocations[i].find('img').hide();
     }
     gameNum++;
-    $('#game-number').text(gameNum);
+    $('#game-number').slideUp(500, function(){
+        $(this).text(gameNum).slideDown(500);
+    });
 }
 
 function checkWin() {
