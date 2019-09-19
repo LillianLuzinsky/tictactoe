@@ -79,9 +79,6 @@ function resetTilesAfterTie() {
     for (let i = 0; i < tilesLocations.length; i++) {
         tilesLocations[i].find('img').hide();
     }
-    $('#game-number').slideUp(500, function () {
-        $(this).text(gameNum).slideDown(500);
-    });
 
     tileFliped = 0;
     $('#game-title h1').fadeOut(500, function () {
