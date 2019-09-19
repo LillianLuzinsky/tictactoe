@@ -1,12 +1,4 @@
 
-
-// $(document).ready(function(){
-//     $('#board-game').slideToggle(1000);
-//     $('.bottom-text').slideToggle(1000);
-// })
-// Next game it'll slideDown and reset
-
-
 let icons = [
     'images/pepper.svg',
     'images/carrot.svg',
@@ -45,11 +37,13 @@ let scoreP2 = 0;
 
 let gameNum = 0;
 
+let tileFliped = 0;
+
 function displayScore() {
     // update the score info in the dom
-    $("#p1-score").slideUp(500, function() {
+    $("#p1-score").slideUp(500, function () {
         $(this).text(scoreP1).slideDown(500);
-      });
+    });
     $("#p2-score").slideUp(500, function () {
         $(this).text(scoreP2).slideDown(500);
     });
@@ -58,9 +52,9 @@ function displayScore() {
     resetTiles();
 
     // update the playerIds so we get new icons for the next round
-    if (gameNum > 1){
-    firstPlayerId += 2;
-    secondPlayerId += 2;
+    if (gameNum > 1) {
+        firstPlayerId += 2;
+        secondPlayerId += 2;
     }
     p1Icon = icons[firstPlayerId];
     p2Icon = icons[secondPlayerId];
@@ -77,10 +71,24 @@ function resetTiles() {
         tilesLocations[i].find('img').hide();
     }
     gameNum++;
-    $('#game-number').slideUp(500, function(){
+    $('#game-number').text(gameNum);
+    tileFliped = 0;
+}
+
+function resetTilesAfterTie() {
+    for (let i = 0; i < tilesLocations.length; i++) {
+        tilesLocations[i].find('img').hide();
+    }
+    $('#game-number').slideUp(500, function () {
         $(this).text(gameNum).slideDown(500);
     });
-}
+
+    tileFliped = 0;
+    $('#game-title h1').fadeOut(500, function () {
+        $(this).fadeIn(500);
+        $('#game-title h1').text("Try Again").css("color", "hotpink").css("border", "solid hotpink 3px");
+    });
+}// need to add a on.click on "Try Again"
 
 function checkWin() {
 
@@ -139,6 +147,7 @@ $(document).ready(function () {
 
     displayScore();
 
+
     $('.tile').on('click', function () {
 
         // store if the tile is in use
@@ -146,7 +155,7 @@ $(document).ready(function () {
 
         // if we can place a tile
         if (isTileUsed === false) {
-
+            tileFliped += 1;
             // check if first player
             if (currentPlayer === firstPlayerId) {
                 // show the icon and set the currentPlayer to player 2
@@ -162,16 +171,30 @@ $(document).ready(function () {
             }
 
         }//end of click tiles
-        
         checkWin();
+        console.log(tileFliped)
+        //check tie
+        if (tileFliped >= 9) {
+            resetTilesAfterTie()
+        }
+
+
     });
-    
+
     nextGame();
 });
 
-function nextGame(){
-    if(checkWin ===  true){
+function nextGame() {
+    if (checkWin === true) {
         $('.food-icon-score').find('img').show().attr('src', p1Icon);
         $('.food-icon-score').find('img').show().attr('src', p2Icon);
     }
+    // else if (gameNum === 6) {
+    //     alert("Game Over");
+    // }
 }
+
+// $('#game-title h1').fadeOut(500, function () {
+//     $(this).fadeIn(500);
+//     $('#game-title h1').text("Next Game").css("color", "lightgreen").css("border", "solid lightgreen 3px");
+// });
