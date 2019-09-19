@@ -39,6 +39,8 @@ let gameNum = 0;
 
 let tileFliped = 0;
 
+let hasWon = false;//TODO get rid of
+
 function displayScore() {
     // update the score info in the dom
     $("#p1-score").slideUp(500, function () {
@@ -52,7 +54,12 @@ function displayScore() {
     resetTiles();
 
     // update the playerIds so we get new icons for the next round
-    if (gameNum > 1) {
+    if (gameNum === 6) {
+        // firstPlayerId = 0;
+        // secondPlayerId = 1;
+        endGame();
+        
+    } else if (gameNum > 1) {
         firstPlayerId += 2;
         secondPlayerId += 2;
     }
@@ -118,6 +125,7 @@ function checkWin() {
 
         console.log('player 1 wins');
         displayScore();
+        hasWon = true;
 
     }
     // check for p2 has won
@@ -134,7 +142,12 @@ function checkWin() {
 
         console.log('player 2 wins');
         displayScore();
+        hasWon = true;
     };
+
+    //TODO check which player has won first 3 games (best of 5)
+    //TODO based on that replace Game Over by Player X wins
+
 }//end of checkWin
 
 
@@ -146,6 +159,7 @@ $(document).ready(function () {
 
 
     $('.tile').on('click', function () {
+
 
         // store if the tile is in use
         let isTileUsed = $(this).find('img').is(':visible');
@@ -181,15 +195,29 @@ $(document).ready(function () {
     nextGame();
 });
 
-function nextGame() {
-    if (checkWin === true) {
-        $('.food-icon-score').find('img').show().attr('src', p1Icon);
-        $('.food-icon-score').find('img').show().attr('src', p2Icon);
+function endGame(){
+    let winner = "Player 2 won";
+    if (scoreP1 > scoreP2) {
+        winner = "Player 1 won";
     }
-    // else if (gameNum === 6) {
-    //     alert("Game Over");
-    // }
+    console.log()
+    $('#game-title h1').text(winner).css("color", "yellow").css("border", "solid yellow 3px");
+    //setTimeout(backToStart, 10000);
 }
+
+function backToStart(){
+    $(location).attr('href', 'index.html').slideDown(2000);
+}
+
+// function nextGame() {
+//     if (hasWon === true) {
+//         $('.food-icon-score').find('img').show().attr('src', p1Icon);
+//         $('.food-icon-score').find('img').show().attr('src', p2Icon);
+//     }
+//     // else if (gameNum === 6) {
+//     //     alert("Game Over");
+//     // }
+// }
 
 // $('#game-title h1').fadeOut(500, function () {
 //     $(this).fadeIn(500);
