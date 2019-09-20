@@ -139,12 +139,7 @@ function checkWin() {
         displayScore();
         hasWon = true;
     };
-
-    //TODO check which player has won first 3 games (best of 5)
-    //TODO based on that replace Game Over by Player X wins
-
 }//end of checkWin
-
 
 $(document).ready(function () {
     $('#p1-score').text(scoreP1);
@@ -173,7 +168,6 @@ $(document).ready(function () {
                 $(this).find('img').show().attr('src', p2Icon);
                 currentPlayer = firstPlayerId;
             }
-
         }//end of click tiles
         checkWin();
         console.log(tileFliped)
@@ -182,8 +176,6 @@ $(document).ready(function () {
             resetTilesAfterTie()
         }
     });
-
-    //nextGame();
 });
 
 function endGame(){
@@ -195,19 +187,3 @@ function endGame(){
     $('#game-title h1').text(winner).css("color", "royalblue").css("border", "solid royalblue 3px");
     $('#game-over').show();
 }
-
-
-// function nextGame() {
-//     if (hasWon === true) {
-//         $('.food-icon-score').find('img').show().attr('src', p1Icon);
-//         $('.food-icon-score').find('img').show().attr('src', p2Icon);
-//     }
-//     // else if (gameNum === 6) {
-//     //     alert("Game Over");
-//     // }
-// }
-
-// $('#game-title h1').fadeOut(500, function () {
-//     $(this).fadeIn(500);
-//     $('#game-title h1').text("Next Game").css("color", "lightgreen").css("border", "solid lightgreen 3px");
-// });
