@@ -129,11 +129,11 @@ a{
 }
 
 #game-over:hover {
-    border: steelblue solid 3px;
+    border: royalblue solid 3px;
 }
 
 #game-over h2:hover {
-    color: steelblue;
+    color: royalblue;
 }
 
 

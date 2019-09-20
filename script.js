@@ -88,7 +88,7 @@ function resetTilesAfterTie() {
     tileFliped = 0;
     $('#game-title h1').fadeOut(500, function () {
         $(this).fadeIn(500);
-        $('#game-title h1').text("Try Again").css("color", "hotpink").css("border", "solid hotpink 3px");
+        $('#game-title h1').text("Try Again").css("color", "deeppink").css("border", "solid deeppink 3px");
         })
     }// FIX THIS
 
@@ -184,6 +184,6 @@ function endGame(){
         winner = "P1 wins";
     }
 
-    $('#game-title h1').text(winner).css("color", "royalblue").css("border", "solid royalblue 3px");
+    $('#game-title h1').text(winner).css("color", "steelblue").css("border", "solid steelblue 3px");
     $('#game-over').fadeIn(1000);
 }
