@@ -185,5 +185,5 @@ function endGame(){
     }
 
     $('#game-title h1').text(winner).css("color", "royalblue").css("border", "solid royalblue 3px");
-    $('#game-over').show();
+    $('#game-over').fadeIn(1000);
 }
