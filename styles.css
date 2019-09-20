@@ -114,7 +114,8 @@ a{
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 30px;
-    border: rgb(50, 50, 50) solid 2px;
+    border: rgb(50, 50, 50) solid 1px;
+    background-color: black;
     
 }
 
@@ -127,6 +128,13 @@ a{
     line-height: 3rem;
 }
 
+#game-over:hover {
+    border: steelblue solid 3px;
+}
+
+#game-over h2:hover {
+    color: steelblue;
+}
 
 
 @media screen and (max-width: 450px) {

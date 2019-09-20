@@ -193,14 +193,9 @@ function endGame(){
     }
 
     $('#game-title h1').text(winner).css("color", "royalblue").css("border", "solid royalblue 3px");
-    //setTimeout(backToStart, 10000);
+    $('#game-over').show();
 }
 
-function backToStart(){
-    $('#end-game').show();
-
-    // $(location).attr('href', 'index.html').slideDown(2000);
-}
 
 // function nextGame() {
 //     if (hasWon === true) {
