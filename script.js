@@ -85,14 +85,12 @@ function resetTilesAfterTie() {
         tilesLocations[i].find('img').hide();
     }
 
-    // tileFliped = 0;
-    // $('#game-title h1').fadeOut(500, function () {
-    //     $(this).fadeIn(500);
-    //     $('#game-title h1').text("Try Again").css("color", "hotpink").css("border", "solid hotpink 3px").fadeOut(500).fadeIn(500, function(){
-    //         $('#game-title h1');
-    //     })
-    // }); FIX THIS
-}
+    tileFliped = 0;
+    $('#game-title h1').fadeOut(500, function () {
+        $(this).fadeIn(500);
+        $('#game-title h1').text("Try Again").css("color", "hotpink").css("border", "solid hotpink 3px");
+        })
+    }// FIX THIS
 
 function checkWin() {
 
@@ -185,7 +183,7 @@ $(document).ready(function () {
         }
     });
 
-    nextGame();
+    //nextGame();
 });
 
 function endGame(){
@@ -193,13 +191,15 @@ function endGame(){
     if (scoreP1 > scoreP2) {
         winner = "P1 wins";
     }
-    
+
     $('#game-title h1').text(winner).css("color", "royalblue").css("border", "solid royalblue 3px");
     //setTimeout(backToStart, 10000);
 }
 
 function backToStart(){
-    $(location).attr('href', 'index.html').slideDown(2000);
+    $('#end-game').show();
+
+    // $(location).attr('href', 'index.html').slideDown(2000);
 }
 
 // function nextGame() {
