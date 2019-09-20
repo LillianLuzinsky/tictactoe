@@ -54,9 +54,9 @@ body{
 
 h1{
     display: inline;
-    padding: 5px 40px;
+    padding: 5px 20px;
     color: grey;
-    font-size: 30px;
+    font-size: 2rem;
     border: 3px solid grey;
     border-radius: 50px;
     text-transform: uppercase;

@@ -39,8 +39,6 @@ let gameNum = 0;
 
 let tileFliped = 0;
 
-let hasWon = false;//TODO get rid of
-
 function displayScore() {
     // update the score info in the dom
     $("#p1-score").slideUp(500, function () {
@@ -87,12 +85,14 @@ function resetTilesAfterTie() {
         tilesLocations[i].find('img').hide();
     }
 
-    tileFliped = 0;
-    $('#game-title h1').fadeOut(500, function () {
-        $(this).fadeIn(500);
-        $('#game-title h1').text("Try Again").css("color", "hotpink").css("border", "solid hotpink 3px");
-    });
-}// need to add a on.click on "Try Again"
+    // tileFliped = 0;
+    // $('#game-title h1').fadeOut(500, function () {
+    //     $(this).fadeIn(500);
+    //     $('#game-title h1').text("Try Again").css("color", "hotpink").css("border", "solid hotpink 3px").fadeOut(500).fadeIn(500, function(){
+    //         $('#game-title h1');
+    //     })
+    // }); FIX THIS
+}
 
 function checkWin() {
 
@@ -107,9 +107,6 @@ function checkWin() {
         $('#bottom2').find('img').attr('src'),//[7]
         $('#bottom3').find('img').attr('src')//[8]
     ];
-
-    console.log(tiles);
-
 
     // check for p1 has won
     if ((tiles[0] === p1Icon && tiles[1] === p1Icon && tiles[2] === p1Icon) ||
@@ -157,9 +154,7 @@ $(document).ready(function () {
 
     displayScore();
 
-
     $('.tile').on('click', function () {
-
 
         // store if the tile is in use
         let isTileUsed = $(this).find('img').is(':visible');
@@ -188,20 +183,18 @@ $(document).ready(function () {
         if (tileFliped >= 9) {
             resetTilesAfterTie()
         }
-
-
     });
 
     nextGame();
 });
 
 function endGame(){
-    let winner = "Player 2 won";
+    let winner = "P2 wins";
     if (scoreP1 > scoreP2) {
-        winner = "Player 1 won";
+        winner = "P1 wins";
     }
-    console.log()
-    $('#game-title h1').text(winner).css("color", "yellow").css("border", "solid yellow 3px");
+    
+    $('#game-title h1').text(winner).css("color", "royalblue").css("border", "solid royalblue 3px");
     //setTimeout(backToStart, 10000);
 }
 
