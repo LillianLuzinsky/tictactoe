@@ -53,8 +53,6 @@ function displayScore() {
 
     // update the playerIds so we get new icons for the next round
     if (gameNum === 6) {
-        // firstPlayerId = 0;
-        // secondPlayerId = 1;
         endGame();
         
     } else if (gameNum > 1) {
@@ -129,7 +127,6 @@ function checkWin() {
 
         console.log('player 1 wins');
         displayScore();
-        hasWon = true;
 
     }
     // check for p2 has won
@@ -146,7 +143,6 @@ function checkWin() {
 
         console.log('player 2 wins');
         displayScore();
-        hasWon = true;
     };
 }//end of checkWin
 
