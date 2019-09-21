@@ -63,7 +63,7 @@ function displayScore() {
     p2Icon = icons[secondPlayerId];
     currentPlayer = firstPlayerId;
 
-    // update the icon scores with the newy updated icons
+    // update the icon scores with the new updated icons
     $('#p1-score-area').find('img').show().attr('src', p1Icon);
     $('#p2-score-area').find('img').show().attr('src', p2Icon);
 
@@ -188,7 +188,7 @@ function endGame(){
     if (scoreP1 > scoreP2) {
         winner = "P1 wins";
     }
-
+    
     $('#game-title h1').text(winner).css("color", "steelblue").css("border", "solid steelblue 3px");
     $('#game-over').fadeIn(1000);
 }
