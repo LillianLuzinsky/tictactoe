@@ -72,25 +72,36 @@ function displayScore() {
 }
 
 function resetTiles() {
+    console.log('Reset Game for win')
     for (let i = 0; i < tilesLocations.length; i++) {
+        tilesLocations[i].find('img').attr('src', '#');
         tilesLocations[i].find('img').hide();
     }
     gameNum++;
-    $('#game-number').text(gameNum);
+    $('#game-title h1').text('Game ' + gameNum).css("color", "white").css("border", "solid white 3px");
     tileFliped = 0;
 }
 
 function resetTilesAfterTie() {
+    console.log('Reset game for draw')
     for (let i = 0; i < tilesLocations.length; i++) {
+        tilesLocations[i].find('img').attr('src', '#');
         tilesLocations[i].find('img').hide();
     }
 
     tileFliped = 0;
-    $('#game-title h1').fadeOut(500, function () {
-        $(this).fadeIn(500);
+    console.log(tileFliped)
+    $('#game-title h1').fadeOut(1000, function () {
+        $(this).fadeIn(1000);
         $('#game-title h1').text("Try Again").css("color", "deeppink").css("border", "solid deeppink 3px");
+        $(this).fadeOut(1000);
+        $('#game-title h1').fadeOut(500, function () {
+            $(this).fadeIn(500);
+            $('#game-title h1').text(`Game ${gameNum}`).css("color", "white").css("border", "solid white 3px");
         })
-    }// FIX THIS
+        
+    })
+}// FIX THIS
 
 function checkWin() {
 
