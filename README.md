@@ -1,4 +1,4 @@
-Title:  Tic Tac Yum
+## Tic Tac Yum
 Link:   https://lillianluzinsky.github.io/tictacyum/
 
 Description:
