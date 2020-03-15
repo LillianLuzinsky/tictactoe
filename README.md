@@ -1,9 +1,11 @@
 # Tic Tac Yum
 
 ## Deployment
-Link:   https://lillianluzinsky.github.io/tictacyum/\
+  - https://lillianluzinsky.github.io/tictacyum/
+
 ---
 
+## How it works
 Description:
 This is very similar to the common tic tac toe but instead of using circles and crosses, you use svg food icons as tokens. 
 
