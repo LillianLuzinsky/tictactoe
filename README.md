@@ -6,7 +6,6 @@
 ---
 
 ## How it works
-Description:
 This is very similar to the common tic tac toe but instead of using circles and crosses, you use svg food icons as tokens. 
 
 There are only 10 different icons for this game and there's a max of 5 games to be played. 
@@ -24,7 +23,7 @@ If there's a draw, your tokens automatically disspears and you're  allowed to pl
 
 Once all 5 games have been completed the game title changes indicating which player has won the most games. A button appears in the middle of the screen saying "Game Over". You may press this button to go back to the starting page if you would like to play again.
 
-Tic tac toe version 2 wishlist:
+### Tic tac toe version 2 wishlist:
 
 1) I would like to program tic tac toe using a 4x4 grid system instead of the usual 3x3
 2) A 4x4 grid system would allow me to add few more other games whilst using the same design layout.
@@ -32,3 +31,11 @@ Tic tac toe version 2 wishlist:
 4) When you complete 5 memory games, the third game will be a puzzle where you slide the tokens to form an image.
 5) I would like to learn how to create a system where one player can't play alone unless another player has logged in too.
 6) Each new game should have an instructions page.
+
+---
+
+### Screenshot
+   
+![Screenshot](./screenshots/tictacscreenshots.png)
+
+---
