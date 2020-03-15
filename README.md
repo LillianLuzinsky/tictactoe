@@ -41,6 +41,15 @@ where you slide the tokens to form an image.
 
 ---
 
+## Used technologies:
+
+1) HTML
+2) CSS
+3) JavaScript
+4) JQuery
+
+---
+
 ### Screenshot
    
 ![Screenshot](./screenshots/tictacscreenshot.png)
