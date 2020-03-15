@@ -36,6 +36,6 @@ Once all 5 games have been completed the game title changes indicating which pla
 
 ### Screenshot
    
-![Screenshot](./screenshots/tictacscreenshots.png)
+![Screenshot](./screenshots/tictacscreenshot.png)
 
 ---
