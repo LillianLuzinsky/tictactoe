@@ -53,5 +53,6 @@ where you slide the tokens to form an image.
 ### Screenshot
    
 ![Screenshot](./screenshots/tictacscreenshot.png)
+![Screenshot](./screenshots/TicTacYum.gif)
 
 ---
