@@ -17,9 +17,11 @@ Each game also has a food theme:    game 1 (veggies);
                                     game 4 (fruit);
                                     game 5 (lollies);
 
-Each time you win a game, you go to the next game with 2 new food icons provided, until all 5 games have been played and won.
+Each time you win a game, you go to the next game with 2 new food icons provided, 
+until all 5 games have been played and won.
 
-If there's a draw, your tokens automatically disspears and you're  allowed to play the same as many times needed, until either player wins to go to the next game.
+If there's a draw, your tokens automatically disappears and you're  allowed to continue the same game 
+as many times until a player wins and go to the next game.
 
 Once all 5 games have been completed the game title changes indicating which player has won the most games. A button appears in the middle of the screen saying "Game Over". You may press this button to go back to the starting page if you would like to play again.
 
